@@ -1,3 +1,4 @@
+
 import express from "express";
 import dotenv from "dotenv";
 
@@ -22,15 +23,21 @@ app.get("/", (req, res) => {
 // Movie API routes
 app.use("/api/v1/movie", movieRoutes);
 
-// Start the server after connecting to MongoDB
+// Start server after successful MongoDB connection
 const startServer = async () => {
-    await connectDB();
+    try {
+        await connectDB();
 
-    const PORT = process.env.PORT || 8000;
+        const PORT = process.env.PORT || 8000;
 
-    app.listen(PORT, () => {
-        console.log(`Server running at http://localhost:${PORT}`);
-    });
+        app.listen(PORT, () => {
+            console.log(`Server running on port ${PORT}`);
+        });
+
+    } catch (error) {
+        console.error("Server startup failed:", error.message);
+        process.exit(1);
+    }
 };
 
 startServer();
