@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Todo from "../model/todomodel.js";
+import Todo from "../model/todoModel.js";
 
 // Create a Todo
 export const createTodo = async (req, res) => {
