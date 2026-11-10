@@ -10,7 +10,7 @@ function AddEditForm() {
   useEffect(() => {
     if (id) {
       async function fetchPost() {
-        const response = await fetch(`http://localhost:3000/api/v1/posts/${id}`);
+        const response = await fetch(`https://fsd-12.onrender.com/api/v1/posts/${id}`);
         const data = await response.json();
         setTitle(data.data.title);
         setContent(data.data.content);
@@ -23,8 +23,8 @@ function AddEditForm() {
     e.preventDefault();
     const method = id ? "PUT" : "POST";
     const url = id
-      ? `http://localhost:3000/api/v1/posts/${id}`
-      : "http://localhost:3000/api/v1/posts";
+     ? `https://fsd-12.onrender.com/api/v1/posts/${id}`
+     : "https://fsd-12.onrender.com/api/v1/posts";
     await fetch(url, {
       method,
       headers: {

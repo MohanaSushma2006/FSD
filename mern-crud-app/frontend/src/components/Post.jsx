@@ -8,7 +8,7 @@ function Post({ post }) {
   };
 
   const handleDelete = async () => {
-    await fetch(`http://localhost:3000/api/v1/posts/${post._id}`, {
+    await fetch(`https://fsd-12.onrender.com/api/v1/posts/${post._id}`, {
       method: "DELETE",
     });
     window.location.reload();

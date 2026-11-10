@@ -7,7 +7,7 @@ function Home() {
 
   useEffect(() => {
     async function fetchPosts() {
-      const response = await fetch("http://localhost:3000/api/v1/posts");
+      const response = await fetch("https://fsd-12.onrender.com/api/v1/posts");
       const data = await response.json();
       setPosts(data.data);
     }
